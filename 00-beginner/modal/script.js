@@ -17,6 +17,9 @@ openModalBtn.addEventListener("click", () => {
 // BONUS: Also add the class "open" to the overlay
 
 // TODO: 4. Create a click event listener for the close-modal-btn that removes the class "open" from the modal
+closeModalBtn.addEventListener("click", () => {
+  modal.classList.remove("open");
+});
 // BONUS: Also remove the class "open" from the overlay
 
 // BONUS: Add a click event listener to the overlay that removes the class "open" from the modal and the overlay
