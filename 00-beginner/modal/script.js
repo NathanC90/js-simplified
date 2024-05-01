@@ -6,6 +6,7 @@
     * BONUS: overlay
 */
 
+
 // TODO: 3. Create a click event listener for the open-modal-btn that adds the class "open" to the modal
 // BONUS: Also add the class "open" to the overlay
 
