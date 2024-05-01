@@ -21,5 +21,9 @@ form.addEventListener("submit", (e) => {
   // Add class to the new item
   item.classList.add("list-item");
   input.value = "";
+
+  // 3. Remove the item by clicking the item itself
+  item.addEventListener("click", () => {
+    item.remove();
+  });
 });
-// 3. Remove the item by clicking the item itself
