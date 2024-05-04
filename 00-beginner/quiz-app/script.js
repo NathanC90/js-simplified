@@ -7,13 +7,21 @@
 */
 
 const form = document.querySelector("#quiz-form")
-const answer = document.querySelectorAll(".answer")
+const answers = document.querySelectorAll(".answer")
 
 // TODO: 3. Create a submit event listener for the form that does the following.
 form.addEventListener("submit", (e) => {
     //    1. Prevent the default behaviour
     e.preventDefault()
     //    2. Get all selected answers (use the `checked` property on the input to determine if it is selected or not)
+    let selectedAnswers = []
+    answers.forEach(answer => {
+        if (answer.checked == true) {
+            selectedAnswers.push(answer)
+        }
+    })
+    console.log(selectedAnswers)
+    
     //    3. Loop through the selected answer to see if they are correct or not (Check the value of the answer to see if it is the string "true")
     //    4. For each correct answer add the class `correct` to the parent with the class `question-item` and remove the class `incorrect`.
     //    5. For each incorrect answer add the class `incorrect` to the parent with the class `question-item` and remove the class `correct`.
