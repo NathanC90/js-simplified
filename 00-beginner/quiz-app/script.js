@@ -7,7 +7,7 @@
 */
 
 const form = document.querySelector("#quiz-form");
-const answers = document.querySelectorAll(".answer");
+const answers = Array.from(document.querySelectorAll(".answer"));
 const questions = document.querySelectorAll(".question-item");
 const alert = document.querySelector("#alert");
 
@@ -21,12 +21,7 @@ form.addEventListener("submit", (e) => {
     question.classList.remove("correct")
   })
   //    2. Get all selected answers (use the `checked` property on the input to determine if it is selected or not)
-  let selectedAnswers = [];
-  answers.forEach((answer) => {
-    if (answer.checked === true) {
-      selectedAnswers.push(answer);
-    }
-  });
+  let selectedAnswers = answers.filter(answer => answer.checked === true);
   //    3. Loop through the selected answer to see if they are correct or not (Check the value of the answer to see if it is the string "true")
   let correctAnswer = 0;
   selectedAnswers.forEach((selected) => {
