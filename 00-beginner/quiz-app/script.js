@@ -15,16 +15,16 @@ const alert = document.querySelector("#alert");
 form.addEventListener("submit", (e) => {
   //    1. Prevent the default behaviour
   e.preventDefault();
+  //    6. BONUS: Make sure unanswered questions show up as incorrect. The easiest way to do this is to add the incorrect class and removing the correct class from all question items before checking the correct answers
+  questions.forEach((question) => {
+    question.classList.add("incorrect")
+    question.classList.remove("correct")
+  })
   //    2. Get all selected answers (use the `checked` property on the input to determine if it is selected or not)
   let selectedAnswers = [];
   answers.forEach((answer) => {
     if (answer.checked === true) {
       selectedAnswers.push(answer);
-    } else {
-      //    6. BONUS: Make sure unanswered questions show up as incorrect. The easiest way to do this is to add the incorrect class and removing the correct class from all question items before checking the correct answers
-      questions.forEach((question) => {
-        question.classList.add("incorrect");
-      });
     }
   });
   //    3. Loop through the selected answer to see if they are correct or not (Check the value of the answer to see if it is the string "true")
