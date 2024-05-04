@@ -7,6 +7,7 @@
 */
 
 const form = document.querySelector("#quiz-form")
+const answer = document.querySelectorAll(".answer")
 
 // TODO: 3. Create a submit event listener for the form that does the following.
 //    1. Prevent the default behaviour
