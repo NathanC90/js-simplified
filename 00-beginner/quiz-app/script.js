@@ -25,15 +25,16 @@ form.addEventListener("submit", (e) => {
   //    3. Loop through the selected answer to see if they are correct or not (Check the value of the answer to see if it is the string "true")
   let correctAnswer = 0;
   selectedAnswers.forEach((selected) => {
+    let questionItem = selected.closest(".question-item")
     if (selected.value === "true") {
       //    4. For each correct answer add the class `correct` to the parent with the class `question-item` and remove the class `incorrect`.
-      selected.closest(".question-item").classList.add("correct");
-      selected.closest(".question-item").classList.remove("incorrect");
+      questionItem.classList.add("correct");
+      questionItem.classList.remove("incorrect");
       correctAnswer = correctAnswer + 1;
     } else {
       //    5. For each incorrect answer add the class `incorrect` to the parent with the class `question-item` and remove the class `correct`.
-      selected.closest(".question-item").classList.add("incorrect");
-      selected.closest(".question-item").classList.remove("correct");
+      questionItem.classList.add("incorrect");
+      questionItem.classList.remove("correct");
     }
 
     //    7. BONUS: If all answers are correct show the element with the id `alert` and hide it after one second (look into setTimeout) (use the class active to show the alert and remove the class to hide it)
