@@ -1,6 +1,7 @@
 // TODO: Select all elements needed
 //    Use the HTML to figure out what classes/ids will work best for selecting each element
 
+
 // TODO: Create an event listener for when the form is submitted and do the following inside of it.
 //    TODO: Create an array to store all error messages and clear any old error messages
 //    TODO: Define the following validation checks with appropriate error messages
