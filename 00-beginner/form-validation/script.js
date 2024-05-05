@@ -7,6 +7,8 @@ const password = document.getElementById("password")
 const passwordConfirmation = document.getElementById("password-confirmation")
 const terms = document.getElementById("terms")
 let errorMessages = []
+const errors = document.querySelector(".errors")
+const errorList = document.querySelector(".errors-list")
 
 // TODO: Create an event listener for when the form is submitted and do the following inside of it.
 form.addEventListener("submit", (e) => {
@@ -30,8 +32,9 @@ form.addEventListener("submit", (e) => {
         errorMessages.push("You must accept the terms")
     }
     //    TODO: If there are any errors then prevent the form from submitting and show the error messages
-    if(errorMessages != null) {
+    if(errorMessages.length != 0) {
         e.preventDefault()
+        showErrors(errorMessages)
     }
 })
 // TODO: Define this function
@@ -47,5 +50,12 @@ function clearErrors() {
   function showErrors(errorMessages) {
     // Add each error to the error-list element
     // Make sure to use an li as the element for each error
+    errorMessages.forEach((message) => {
+        let errorItems = document.createElement("li")
+        errorItems.innerText = message
+        console.log(errorItems.innerText)
+        errorList.appendChild(errorItems)
+    })
     // Also, make sure you add the show class to the errors container
+    errors.classList.add("show")
   }
