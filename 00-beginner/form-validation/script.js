@@ -6,17 +6,34 @@ const username = document.getElementById("username")
 const password = document.getElementById("password")
 const passwordConfirmation = document.getElementById("password-confirmation")
 const terms = document.getElementById("terms")
+let errorMessages = []
 
 // TODO: Create an event listener for when the form is submitted and do the following inside of it.
-
+form.addEventListener("submit", (e) => {
     //    TODO: Create an array to store all error messages and clear any old error messages
+    errorMessages = []
     //    TODO: Define the following validation checks with appropriate error messages
     //      1. Ensure the username is at least 6 characters long
+    if(username.value.length < 6) {
+        errorMessages.push("Username must be at least 6 characters long")
+    }  
     //      2. Ensure the password is at least 10 characters long
+    if (password.value.length < 10) {
+        errorMessages.push("Password must be at least 10 characters long")
+    }
     //      3. Ensure the password and confirmation password match
+    if (password.value !== passwordConfirmation.value) {
+        errorMessages.push("Passwords must match")
+    }
     //      4. Ensure the terms checkbox is checked
+    if (terms.checked === false) {
+        errorMessages.push("You must accept the terms")
+    }
     //    TODO: If there are any errors then prevent the form from submitting and show the error messages
-
+    if(errorMessages != null) {
+        e.preventDefault()
+    }
+})
 // TODO: Define this function
 function clearErrors() {
     // Loop through all the children of the error-list element and remove them
