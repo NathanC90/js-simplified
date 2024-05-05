@@ -1,11 +1,11 @@
 // TODO: Select all elements needed
 //    Use the HTML to figure out what classes/ids will work best for selecting each element
-const form = document.getElementById("form")
+const form = document.querySelector("#form")
 const formGroups = document.querySelectorAll(".form-group")
-const username = document.getElementById("username")
-const password = document.getElementById("password")
-const passwordConfirmation = document.getElementById("password-confirmation")
-const terms = document.getElementById("terms")
+const username = document.querySelector("#username")
+const password = document.querySelector("#password")
+const passwordConfirmation = document.querySelector("#password-confirmation")
+const terms = document.querySelector("#terms")
 let errorMessages = []
 const errors = document.querySelector(".errors")
 const errorList = document.querySelector(".errors-list")
