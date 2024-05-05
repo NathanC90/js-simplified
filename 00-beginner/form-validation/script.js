@@ -1,15 +1,21 @@
 // TODO: Select all elements needed
 //    Use the HTML to figure out what classes/ids will work best for selecting each element
-
+const form = document.getElementById("form")
+const formGroups = document.querySelectorAll(".form-group")
+const username = document.getElementById("username")
+const password = document.getElementById("password")
+const passwordConfirmation = document.getElementById("password-confirmation")
+const terms = document.getElementById("terms")
 
 // TODO: Create an event listener for when the form is submitted and do the following inside of it.
-//    TODO: Create an array to store all error messages and clear any old error messages
-//    TODO: Define the following validation checks with appropriate error messages
-//      1. Ensure the username is at least 6 characters long
-//      2. Ensure the password is at least 10 characters long
-//      3. Ensure the password and confirmation password match
-//      4. Ensure the terms checkbox is checked
-//    TODO: If there are any errors then prevent the form from submitting and show the error messages
+
+    //    TODO: Create an array to store all error messages and clear any old error messages
+    //    TODO: Define the following validation checks with appropriate error messages
+    //      1. Ensure the username is at least 6 characters long
+    //      2. Ensure the password is at least 10 characters long
+    //      3. Ensure the password and confirmation password match
+    //      4. Ensure the terms checkbox is checked
+    //    TODO: If there are any errors then prevent the form from submitting and show the error messages
 
 // TODO: Define this function
 function clearErrors() {
