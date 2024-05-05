@@ -35,6 +35,8 @@ form.addEventListener("submit", (e) => {
     if(errorMessages.length != 0) {
         e.preventDefault()
         showErrors(errorMessages)
+    } else {
+        clearErrors()
     }
 })
 // TODO: Define this function
@@ -44,16 +46,19 @@ function clearErrors() {
     // I recommend using a while loop to accomplish this task
     // This is the trickiest part of this exercise so if you get stuck and are unable to progress you can also set the innerHTML property of the error-list to an empty string and that will also clear the children. I recommend trying to accomplish this with a while loop, though, for practice.
     // Also, make sure you remove the show class to the errors container
+    errors.classList.remove("show")
   }
   
   // TODO: Define this function
   function showErrors(errorMessages) {
     // Add each error to the error-list element
     // Make sure to use an li as the element for each error
+    if(errorMessages.length != 0) {
+        errorList.innerHTML = ""
+    }
     errorMessages.forEach((message) => {
         let errorItems = document.createElement("li")
         errorItems.innerText = message
-        console.log(errorItems.innerText)
         errorList.appendChild(errorItems)
     })
     // Also, make sure you add the show class to the errors container
