@@ -7,15 +7,20 @@ const template = document.querySelector("#list-item-template");
 const LOCAL_STORAGE_PREFIX = "ADVANCED_TODO_LIST";
 const TODOS_STORAGE_KEY = `${LOCAL_STORAGE_PREFIX}-todos`;
 const todos = loadTodos();
-todos.forEach(todo => renderTodo(todo))
+todos.forEach((todo) => renderTodo(todo));
 
 list.addEventListener("change", (e) => {
-    if(!e.target.matches("[data=list-item-checkbox]")) return
+  if (!e.target.matches("[data-list-item-checkbox]")) return;
 
-    // Get the todo that is clicked on
-    // Toggle the complete property to be equal to the checkbox value
-    // Save our updated todo
-})
+  // Get the todo that is clicked on
+  const parent = e.target.closest(".list-item");
+  const todoId = parent.dataset.todoId;
+  const todo = todos.find(t => t.id === todoId);
+  // Toggle the complete property to be equal to the checkbox value
+  todo.complete = e.target.checked;
+  // Save our updated todo
+  saveTodos();
+});
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -25,8 +30,8 @@ form.addEventListener("submit", (e) => {
   const newTodo = {
     name: todoName,
     complete: false,
-    id: new Date().valueOf().toString()
-  }
+    id: new Date().valueOf().toString(),
+  };
   todos.push(newTodo);
   renderTodo(newTodo);
   saveTodos();
@@ -36,17 +41,19 @@ form.addEventListener("submit", (e) => {
 // This should then add todo to the list above.
 function renderTodo(todo) {
   const templateClone = template.content.cloneNode(true);
-  const listItem = templateClone.querySelector(".list-item")
-  listItem.dataset.todoId = todo.id
+  const listItem = templateClone.querySelector(".list-item");
+  listItem.dataset.todoId = todo.id;
   const textElement = templateClone.querySelector("[data-list-item-text]");
   textElement.innerText = todo.name;
+  const checkbox = templateClone.querySelector("[data-list-item-checkbox]")
+  checkbox.checked = todo.complete
   list.appendChild(templateClone);
 }
 
 // Load Todos
 function loadTodos() {
   const todosString = localStorage.getItem(TODOS_STORAGE_KEY);
-  return JSON.parse(todosString) || []
+  return JSON.parse(todosString) || [];
 }
 
 // Save Todos
