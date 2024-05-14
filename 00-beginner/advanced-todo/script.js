@@ -9,6 +9,7 @@ form.addEventListener("submit", (e) => {
     e.preventDefault()
     
     const todoName = todoInput.value
+    if(todoName === "") return
     renderTodo(todoName)
     todoInput.value = ""
 })
