@@ -13,6 +13,15 @@ function setupMap(centerPosition) {
     center: centerPosition, // starting position [lng, lat]
     zoom: 9, // starting zoom
   });
+
+  map.addControl(
+    new MapboxDirections({
+      accessToken: MAPBOX_ACCESS_TOKEN,
+    }),
+    "top-left"
+  );
+
+  map.addControl(new mapboxgl.FullscreenControl());
 }
 
 function successLocation(position) {
