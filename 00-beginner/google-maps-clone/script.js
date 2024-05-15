@@ -12,6 +12,7 @@ function setupMap(centerPosition) {
     style: "mapbox://styles/mapbox/streets-v12", // style URL
     center: centerPosition, // starting position [lng, lat]
     zoom: 9, // starting zoom
+    attributionControl: false,
   });
 
   map.addControl(
@@ -22,6 +23,19 @@ function setupMap(centerPosition) {
   );
 
   map.addControl(new mapboxgl.FullscreenControl());
+
+  map.addControl(
+    new mapboxgl.AttributionControl({
+      customAttribution: "Map design by Nateflix&Code",
+    })
+  );
+
+  // Create a new marker.
+  const marker = new mapboxgl.Marker().setLngLat([30.5, 50.5]).addTo(map);
+
+  // Navigation control
+  const nav = new mapboxgl.NavigationControl();
+  map.addControl(nav, "top-right");
 }
 
 function successLocation(position) {
